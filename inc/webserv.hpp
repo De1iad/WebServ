@@ -6,7 +6,7 @@
 /*   By: obibby <obibby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 22:41:18 by libacchu          #+#    #+#             */
-/*   Updated: 2023/01/25 16:29:30 by obibby           ###   ########.fr       */
+/*   Updated: 2023/01/25 16:44:45 by obibby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <fstream>
+# include <map>
 
 # include <sys/socket.h> // For socket function
 # include <poll.h>
