@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: libacchu <libacchu@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: libacchu <libacchu@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 22:40:01 by libacchu          #+#    #+#             */
-/*   Updated: 2023/01/25 08:51:36 by libacchu         ###   ########.fr       */
+/*   Updated: 2023/01/25 09:46:26 by libacchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,23 @@ int main(int ac, char ** av)
 	sockaddr_in sockaddr;
 	sockaddr.sin_family = AF_INET;
 	sockaddr.sin_addr.s_addr = INADDR_ANY;
-	sockaddr.sin_port = htons(4242);
+	sockaddr.sin_port = htons(7676);
 	
-		int bi;
-		int list;
-		int addrlen;
-		int bytesRead;
-		int connection;
-		char buffer[1024];
-		std::ofstream myfile;
-		
+	int bi;
+	int list;
+	int addrlen;
+	int bytesRead;
+	int connection;
+	char buffer[10000];
+	std::ifstream myfile;
+	
+	std::cout << "--- HERE ---\n";
+	while (1)
+	{
 		bi = bind(server_fd, (struct sockaddr*)&sockaddr, sizeof(sockaddr));
 		if (bi < 0)
 			exit (1);
-	while (1)
-	{
 
-		// std::cout << "--- HERE ---\n";
 		/* listen */
 		list = listen(server_fd, 10);
 		if (list < 0)
@@ -56,22 +56,27 @@ int main(int ac, char ** av)
 			exit (1);
 		
 		/* read from connection */
-		bytesRead = read(connection, buffer, 1024);
+		bytesRead = read(connection, buffer, 10000);
 		if (bytesRead < 0)
 			exit (1);
+		std::cout << buffer << std::endl;
 		
 		myfile.open ("website/index.html");
 		
 		std::string response;
 		std::string line;
-		while ( getline (myfile,line) )
+		while ( getline (myfile,line) && line.size() != 0)
 		{
 			response = response + line;
+			response = response + "\n";
+			if (myfile.eof() || line.size() == 0)
+				break;
 		}
+		std::cout << response << std::endl;
 		send(connection, response.c_str(), response.size(), 0);
+		myfile.close();
 	}
-	myfile.close();
-	close(connection);
-	close(server_fd);
+		close(connection);
+		close(server_fd);
 	return (0);
 }
