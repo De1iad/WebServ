@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   webserv.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: libacchu <libacchu@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: obibby <obibby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 22:41:18 by libacchu          #+#    #+#             */
-/*   Updated: 2023/01/25 08:44:40 by libacchu         ###   ########.fr       */
+/*   Updated: 2023/01/25 16:29:30 by obibby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,17 @@
 # include <fstream>
 
 # include <sys/socket.h> // For socket function
+# include <poll.h>
 # include <netinet/in.h> //For sockaddr_in
 # include <unistd.h> //For read
+#include <fcntl.h> // open
+
+class server {
+	public:
+		class response;
+		class http_header;
+		class connection;
+};
 
 # define PORT 4242
 
