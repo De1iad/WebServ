@@ -6,7 +6,7 @@
 /*   By: obibby <obibby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 22:41:18 by libacchu          #+#    #+#             */
-/*   Updated: 2023/01/25 16:44:45 by obibby           ###   ########.fr       */
+/*   Updated: 2023/01/26 14:45:48 by obibby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,9 @@
 # include <unistd.h> //For read
 #include <fcntl.h> // open
 
-class server {
+class Server {
 	public:
-		class response;
-		class http_header;
-		class connection;
+		Server()
 };
 
 # define PORT 4242

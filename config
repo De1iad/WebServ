@@ -1,0 +1,29 @@
+server {
+	listen       8080;
+	server_name  wordpress.com;
+	root         html;
+
+	location / {
+		root	/var/www/wordpress
+		methods GET POST
+	}
+}
+
+server {
+	listen       4242;
+	server_name  filestore.com;
+	root         html;
+
+	client_max_body_size 5k;
+
+	location / {
+		root    /var/www
+		methods GET POST
+	}
+
+	error_page 404 /404.html
+	location /404.html {
+		root /var/www
+		methods GET POST
+	}
+}

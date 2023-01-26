@@ -6,7 +6,7 @@
 /*   By: obibby <obibby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 22:40:01 by libacchu          #+#    #+#             */
-/*   Updated: 2023/01/25 16:51:43 by obibby           ###   ########.fr       */
+/*   Updated: 2023/01/26 13:42:17 by obibby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int main(int ac, char ** av)
 	/* Create socket */
 
 	
+	if (get_config())
+		return (1);
 	int server_fd = socket(AF_INET, SOCK_STREAM, 0);
 	if (server_fd < 1)
 		return (1); // fail to create socket
@@ -35,9 +37,10 @@ int main(int ac, char ** av)
 	int addrlen;
 	int bytesRead;
 	int connection = 0;
-	bi = bind(server_fd, (struct sockaddr*)&sockaddr, sizeof(sockaddr));
-	if (bi < 0)
-		exit (1);
+	if (bind(server_fd, (struct sockaddr*)&sockaddr, sizeof(sockaddr)))
+	{
+		perror("failed to bind");
+	}
 	char buffer[10000];
 	struct pollfd poll_fd;
 	poll_fd.events = POLLIN;
