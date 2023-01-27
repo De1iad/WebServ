@@ -6,18 +6,18 @@
 #    By: obibby <obibby@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/21 22:29:03 by libacchu          #+#    #+#              #
-#    Updated: 2023/01/25 12:24:55 by obibby           ###   ########.fr        #
+#    Updated: 2023/01/27 11:15:17 by obibby           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	webserv
 
 SRC_DIR	=	src/
-SRC		=	main.cpp
+SRC		=	main.cpp Config.cpp Response.cpp Server.cpp
 
 SRCS	=	$(addprefix $(SRC_DIR), $(SRC))
 
-INC		=	inc/webserv.hpp
+INC		=	inc/WebServ.hpp inc/Config.hpp inc/Server.hpp inc/Response.hpp 
 
 OBJ_DIR	=	obj/
 OBJ		=	$(SRCS:%.cpp=$(OBJ_DIR)%.o)

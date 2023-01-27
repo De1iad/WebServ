@@ -6,7 +6,7 @@
 /*   By: obibby <obibby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:50:52 by obibby            #+#    #+#             */
-/*   Updated: 2023/01/26 15:41:47 by obibby           ###   ########.fr       */
+/*   Updated: 2023/01/27 12:47:50 by obibby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 
 class Server {
 	public:
-		Server(std::ifstream stream);
-		~Server();
+		Server(std::ifstream &stream);
+		Server(const Server &src);
+		Server &operator=(const Server &src);
+		//~Server();
 
 		int	getPort();
 	private:

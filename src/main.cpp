@@ -6,22 +6,28 @@
 /*   By: obibby <obibby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 22:40:01 by libacchu          #+#    #+#             */
-/*   Updated: 2023/01/26 13:42:17 by obibby           ###   ########.fr       */
+/*   Updated: 2023/01/27 12:41:36 by obibby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/webserv.hpp"
+#include "../inc/WebServ.hpp"
 
 int main(int ac, char ** av)
 {
 	(void) ac;
-	(void) av;
 	
 	/* Create socket */
 
 	
-	if (get_config())
-		return (1);
+	try
+	{
+		Config config(av[1]);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 	int server_fd = socket(AF_INET, SOCK_STREAM, 0);
 	if (server_fd < 1)
 		return (1); // fail to create socket
@@ -31,8 +37,6 @@ int main(int ac, char ** av)
 	sockaddr.sin_family = AF_INET;
 	sockaddr.sin_addr.s_addr = INADDR_ANY;
 	sockaddr.sin_port = htons(7676);
-	
-	int bi;
 	//int list;
 	int addrlen;
 	int bytesRead;
@@ -85,7 +89,7 @@ int main(int ac, char ** av)
 		bytesRead = read(connection, buffer, 10000);
 		if (bytesRead < 0)
 			exit (1);
-		Response(buffer);
+		//Response(buffer);
 		std::cout << buffer << std::endl;
 		// std::cout << buffer[0] << buffer[1] << buffer[2] << std::endl;
 		int i = 4;
