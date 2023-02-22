@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Config.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obibby <obibby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: obibby <obibby@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 10:55:20 by obibby            #+#    #+#             */
-/*   Updated: 2023/01/27 12:47:55 by obibby           ###   ########.fr       */
+/*   Updated: 2023/02/01 11:44:29 by obibby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Config::Config(char *path)
 	std::string buff;
 	while (std::getline(config_file, buff))
 	{
-		if (buff.find("server") && buff.find('{'))
+		if (!buff.find("server") && buff.find('{') != std::string::npos)
 		{
 			servers.push_back(Server(config_file));
 			total_servers++;

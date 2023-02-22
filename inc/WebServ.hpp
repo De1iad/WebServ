@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WebServ.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obibby <obibby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: obibby <obibby@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 22:41:18 by libacchu          #+#    #+#             */
-/*   Updated: 2023/01/27 12:18:18 by obibby           ###   ########.fr       */
+/*   Updated: 2023/02/01 10:29:13 by obibby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <cstring>
 # include <fstream>
 # include <sstream>
 # include <map>
@@ -25,6 +26,7 @@
 # include <netinet/in.h> //For sockaddr_in
 # include <unistd.h> //For read
 # include <fcntl.h> // open
+# include <stdlib.h>
 
 # include "Config.hpp"
 

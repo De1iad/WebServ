@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Server.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obibby <obibby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: obibby <obibby@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:50:52 by obibby            #+#    #+#             */
-/*   Updated: 2023/01/27 12:47:50 by obibby           ###   ########.fr       */
+/*   Updated: 2023/02/01 13:59:38 by obibby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,16 @@ class Server {
 		Server(std::ifstream &stream);
 		Server(const Server &src);
 		Server &operator=(const Server &src);
-		//~Server();
+		~Server();
 
 		int	getPort();
 	private:
+		void add_location(std::ifstream &stream, std::string buff);
+		void map_location(std::ifstream &stream, std::string buff, std::string location);
 		int	port;
 		std::string	name;
 		std::string	root;
 		size_t	max_body_size;
-		std::string	*location;
 		std::map<std::string, std::string> local_root;
 		std::map<std::string, std::string> local_methods;
 };

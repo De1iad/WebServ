@@ -3,7 +3,8 @@ server {
 	server_name  wordpress.com;
 	root         html;
 
-	location / {
+	location / 
+	{
 		root	/var/www/wordpress
 		methods GET POST
 	}

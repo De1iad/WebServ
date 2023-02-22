@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obibby <obibby@student.42.fr>              +#+  +:+       +#+        */
+/*   By: obibby <obibby@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 22:40:01 by libacchu          #+#    #+#             */
-/*   Updated: 2023/01/27 12:41:36 by obibby           ###   ########.fr       */
+/*   Updated: 2023/02/01 10:31:58 by obibby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int main(int ac, char ** av)
 		char *tmp_str = strdup("wordpress");
 		str = strcat(tmp_str, str);
 		std::cout << str << std::endl;
-		//poll(&poll_fd, 1, -1);
+		poll(&poll_fd, 1, -1);
 		close(connection);
 	}
 	close(server_fd);
